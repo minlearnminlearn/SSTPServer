@@ -23,9 +23,10 @@ sudo ./vpnserver start
 
 # Configure SSTP VPN
 
-sudo ./vpncmd localhost /SERVER /CMD:ServerPasswordSet
+sudo ./vpncmd localhost /SERVER /CMD:ServerPasswordSet test
 sudo ./vpncmd localhost /SERVER /PASSWORD:test /CMD:HubCreate SSTP
 sudo ./vpncmd localhost /SERVER /PASSWORD:test /CMD:HUB SSTP
+sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:SecureNatEnable yes
 
 
 #sudo ./vpncmd localhost /SERVER /CMD:EnableSSTP
