@@ -22,8 +22,11 @@ sudo chmod 700 vpncmd
 sudo ./vpnserver start
 
 # Configure SSTP VPN
-sudo ./vpncmd localhost /SERVER /CMD:EnableSSTP
-sudo ./vpncmd localhost /SERVER /PASSWORD:serverpassword /CMD:SstpEnable yes
-sudo ./vpncmd localhost /SERVER /PASSWORD:serverpassword /CMD:SstpSetLog /INFORMATION:YES
+
+sudo ./vpncmd localhost /SERVER /CMD:ServerPasswordSet
+
+#sudo ./vpncmd localhost /SERVER /CMD:EnableSSTP
+#sudo ./vpncmd localhost /SERVER /PASSWORD:serverpassword /CMD:SstpEnable yes
+#sudo ./vpncmd localhost /SERVER /PASSWORD:serverpassword /CMD:SstpSetLog /INFORMATION:YES
 
 echo "SSTP VPN server installation and configuration complete."
