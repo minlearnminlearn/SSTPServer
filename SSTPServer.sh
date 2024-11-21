@@ -25,14 +25,14 @@ sudo ./vpnserver start
 # Configure SSTP VPN
 
 sudo ./vpncmd localhost /SERVER /CMD:ServerPasswordSet test
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /CMD:HubCreate SSTP
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /CMD:HUB SSTP
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:UserCreate test
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:UserPasswordSet test
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:ServerCertRegenerate mydomain.com
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:ServerCertGet ~/mydomain.com.cer
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:SstpEnable yes
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:SecureNatEnable
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:StatusGet
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HubCreate SSTP
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HUB SSTP
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserCreate test
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserPasswordSet test
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:ServerCertRegenerate mydomain.com
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:ServerCertGet ~/mydomain.com.cer
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:SstpEnable yes
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:SecureNatEnable
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:StatusGet
 
 echo "SSTP VPN server installation and configuration complete."
