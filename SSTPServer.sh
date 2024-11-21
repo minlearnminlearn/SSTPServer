@@ -25,11 +25,11 @@ sudo ./vpnserver start
 # Configure SSTP VPN
 
 sudo ./vpncmd localhost /SERVER /CMD:ServerPasswordSet test
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerList
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 992
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 1194
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 5555
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:OpenVpnEnable no /PORTS:1194
+#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerList
+#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 992
+#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 1194
+#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 5555
+#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:OpenVpnEnable no /PORTS:1194
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpGet
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpEnable yes
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertRegenerate 124.220.179.147
