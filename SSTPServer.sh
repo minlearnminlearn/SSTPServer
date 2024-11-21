@@ -19,37 +19,36 @@ sed -i "s#https://github.com#https://ghproxy.minlearn.org/api/https://github.com
 git submodule init && git submodule update
 ./configure
 make -C build
-make -C build install
 
 # Set permissions on VPN server files
-sudo chmod 600 *
-sudo chmod 700 vpnserver
-sudo chmod 700 vpncmd
-sudo chcon -Rv -u system_u -t bin_t vpnserver
+sudo chmod 600 build/*
+sudo chmod 700 build/vpnserver
+sudo chmod 700 build/vpncmd
+sudo chcon -Rv -u system_u -t bin_t build/vpnserver
 
 # Start VPN server
-sudo ./vpnserver start
+sudo ./build/vpnserver start
 
 # Configure SSTP VPN
 
-sudo ./vpncmd localhost /SERVER /CMD:ServerPasswordSet test
-#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerList
-#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 992
-#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 1194
-#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 5555
-#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:OpenVpnEnable no /PORTS:1194
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpGet
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpEnable yes
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertRegenerate 124.220.179.147
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertGet certificate.cer
+sudo ./build/vpncmd localhost /SERVER /CMD:ServerPasswordSet test
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerList
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 992
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 1194
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 5555
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:OpenVpnEnable no /PORTS:1194
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpGet
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpEnable yes
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertRegenerate 124.220.179.147
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertGet certificate.cer
 
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HubCreate SSTP
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HUB SSTP
-#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SetHubPassword test
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserCreate test /GROUP:none /REALNAME:"test" /NOTE:"test"
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserPasswordSet test /PASSWORD:test
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:SecureNatEnable
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:HubCreate SSTP
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:HUB SSTP
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:SetHubPassword test
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserCreate test /GROUP:none /REALNAME:"test" /NOTE:"test"
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserPasswordSet test /PASSWORD:test
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:SecureNatEnable
 
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:StatusGet
+sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:StatusGet
 
 echo "SSTP VPN server installation and configuration complete."
