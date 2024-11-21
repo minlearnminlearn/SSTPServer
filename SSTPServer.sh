@@ -17,6 +17,7 @@ sudo make
 sudo chmod 600 *
 sudo chmod 700 vpnserver
 sudo chmod 700 vpncmd
+sudo chcon -Rv -u system_u -t bin_t vpnserver
 
 # Start VPN server
 sudo ./vpnserver start
