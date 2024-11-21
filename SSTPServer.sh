@@ -33,7 +33,7 @@ sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:OpenVpnEnable no /PORTS:1194
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpGet
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpEnable yes
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertRegenerate 124.220.179.147
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertGet ~/certificate.cer
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertGet certificate.cer
 
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HubCreate SSTP
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HUB SSTP
