@@ -15,6 +15,7 @@ sudo apt-get update
 sudo apt -y install git cmake gcc g++ make pkgconf libncurses5-dev libssl-dev libsodium-dev libreadline-dev zlib1g-dev
 git clone https://ghproxy.minlearn.org/api/https://github.com/SoftEtherVPN/SoftEtherVPN.git
 cd SoftEtherVPN
+sed -i "s#https://github.com#https://ghproxy.minlearn.org/api/https://github.com#g" .gitmodules
 git submodule init && git submodule update
 ./configure
 make -C build
