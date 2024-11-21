@@ -42,13 +42,13 @@ sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpEnable yes
 sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertRegenerate 124.220.179.147
 sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertGet certificate.cer
 
-sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:HubCreate SSTP
-sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:HUB SSTP
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:HubCreate SSTP
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:HUB SSTP
 #sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /CMD:SetHubPassword test
-sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserCreate test /GROUP:none /REALNAME:"test" /NOTE:"test"
-sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserPasswordSet test /PASSWORD:test
-sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:SecureNatEnable
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserCreate test /GROUP:none /REALNAME:"test" /NOTE:"test"
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserPasswordSet test /PASSWORD:test
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:SecureNatEnable
 
-sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:StatusGet
+#sudo ./build/vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:StatusGet
 
 echo "SSTP VPN server installation and configuration complete."
