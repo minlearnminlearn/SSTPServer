@@ -4,14 +4,21 @@
 sudo apt-get update
 
 # Install required packages
-sudo apt-get install build-essential libssl-dev libwrap0-dev libpam0g-dev libreadline-dev libnl-route-3-dev -y
-
+# sudo apt-get install build-essential libssl-dev libwrap0-dev libpam0g-dev libreadline-dev libnl-route-3-dev -y
 # Download SoftEther VPN server
-wget "https://www.softether-download.com/files/softether/v4.41-9787-rtm-2023.03.14-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.41-9787-rtm-2023.03.14-linux-x64-64bit.tar.gz"
+# wget "https://www.softether-download.com/files/softether/v4.41-9787-rtm-2023.03.14-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v4.41-9787-rtm-2023.03.14-linux-x64-64bit.tar.gz"
 # Extract and install SoftEther VPN server
-tar xzvf softether-vpnserver-v4.41-9787-rtm-2023.03.14-linux-x64-64bit.tar.gz
-cd vpnserver
-sudo make
+# tar xzvf softether-vpnserver-v4.41-9787-rtm-2023.03.14-linux-x64-64bit.tar.gz
+# cd vpnserver
+# sudo make
+
+sudo apt -y install git cmake gcc g++ make pkgconf libncurses5-dev libssl-dev libsodium-dev libreadline-dev zlib1g-dev
+git clone https://github.com/SoftEtherVPN/SoftEtherVPN.git
+cd SoftEtherVPN
+git submodule init && git submodule update
+./configure
+make -C build
+make -C build install
 
 # Set permissions on VPN server files
 sudo chmod 600 *
