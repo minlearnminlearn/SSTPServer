@@ -26,11 +26,12 @@ sudo ./vpnserver start
 sudo ./vpncmd localhost /SERVER /CMD:ServerPasswordSet test
 sudo ./vpncmd localhost /SERVER /PASSWORD:test /CMD:HubCreate SSTP
 sudo ./vpncmd localhost /SERVER /PASSWORD:test /CMD:HUB SSTP
-sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:SecureNatEnable yes
-
-
-#sudo ./vpncmd localhost /SERVER /CMD:EnableSSTP
-#sudo ./vpncmd localhost /SERVER /PASSWORD:serverpassword /CMD:SstpEnable yes
-#sudo ./vpncmd localhost /SERVER /PASSWORD:serverpassword /CMD:SstpSetLog /INFORMATION:YES
+sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:UserCreate test
+sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:UserPasswordSet test
+sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:ServerCertRegenerate mydomain.com
+sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:ServerCertGet ~/mydomain.com.cer
+sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:SstpEnable yes
+sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:SecureNatEnable
+sudo ./vpncmd localhost /SERVER /PASSWORD:test /HUB:SSTP /CMD:StatusGet
 
 echo "SSTP VPN server installation and configuration complete."
