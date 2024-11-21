@@ -8,7 +8,6 @@ sudo apt-get install build-essential libssl-dev libwrap0-dev libpam0g-dev librea
 
 # Download SoftEther VPN server
 wget https://ghproxy.minlearn.org/api/https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.38-9760-rtm/softether-vpnserver-v4.38-9760-rtm-2021.08.17-linux-x64-64bit.tar.gz
-
 # Extract and install SoftEther VPN server
 tar xzvf softether-vpnserver-v4.38-9760-rtm-2021.08.17-linux-x64-64bit.tar.gz
 cd vpnserver
