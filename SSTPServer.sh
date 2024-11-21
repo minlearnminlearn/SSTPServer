@@ -25,13 +25,23 @@ sudo ./vpnserver start
 # Configure SSTP VPN
 
 sudo ./vpncmd localhost /SERVER /CMD:ServerPasswordSet test
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerList
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 992
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 1194
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ListenerDelete 5555
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:OpenVpnEnable no /PORTS:1194
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SstpGet
+
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HubCreate SSTP
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HUB SSTP
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserCreate test
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserPasswordSet test
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:ServerCertRegenerate mydomain.com
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:ServerCertGet ~/mydomain.com.cer
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SetHubPassword test
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:SstpEnable yes
+
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserCreate test /GROUP:none /REALNAME:"test" /NOTE:"test"
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserPasswordSet test /PASSWORD:test
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:ServerCertRegenerate 124.220.179.147
+sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:ServerCertGet ~/certificate.cer
+
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:SecureNatEnable
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:StatusGet
 
