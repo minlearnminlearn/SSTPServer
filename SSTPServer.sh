@@ -37,7 +37,7 @@ sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:ServerCertGet certificate.ce
 
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HubCreate SSTP
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:HUB SSTP
-sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SetHubPassword test
+#sudo ./vpncmd localhost /PASSWORD:test /SERVER /CMD:SetHubPassword test
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserCreate test /GROUP:none /REALNAME:"test" /NOTE:"test"
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:UserPasswordSet test /PASSWORD:test
 sudo ./vpncmd localhost /PASSWORD:test /SERVER /HUB:SSTP /CMD:SecureNatEnable
